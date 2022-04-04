@@ -35,7 +35,7 @@ function addTable(response, num) {
 function createTable (num, num1) {
     if (num > num1) num = num1;
     let table = document.createElement("table");
-    table.setAttribute('class', 'table')
+    table.setAttribute('class', 'table');
 
     for ( let i = 0; i < 6; i++){
         let tr = document.createElement('tr');
@@ -49,7 +49,7 @@ function createTable (num, num1) {
     let div = document.querySelector('.list');
     div.append(table);
 
-    if (num > 1)  createTable (num  - 1)
+    if (num > 1)  createTable (num  - 1);
 }
 
 function inTable (response, table, i ) {
@@ -71,7 +71,7 @@ btnClear.addEventListener("click", function() {
     textInput.value = '';
     document.querySelector('.list').remove();
     let div = document.createElement('div');
-    div.setAttribute('class', 'list')
+    div.setAttribute('class', 'list');
     document.body.append(div);
     window.addEventListener('scroll', checkScroll);
     checkScroll();
@@ -87,7 +87,7 @@ function query () {
     let findName = textInput.value;
     document.querySelector('.list').remove();
     let div = document.createElement('div');
-    div.setAttribute('class', 'list')
+    div.setAttribute('class', 'list');
     document.body.append(div);
     window.removeEventListener('scroll', checkScroll);
     if(findName == false) {checkFindName(); return;}
@@ -95,7 +95,7 @@ function query () {
     fetch(url).then(function(response) {
         return response.json();
     }).then(function(response) {
-       find(response, findName)
+       find(response, findName);
     })
 }
 
@@ -105,7 +105,7 @@ function find (response, findName){
         name = name.toUpperCase();
         findName =findName.toUpperCase();
         if(name.indexOf(findName, 0) != -1) {
-            createTable (1)
+            createTable (1);
             let table =  document.querySelector('.list').lastChild;
             inTable (response, table, i);
         }
@@ -116,8 +116,8 @@ function find (response, findName){
 function checkFindName() {
     let div = document.querySelector('.list');
     let err = document.createElement('div');
-    err.innerHTML = 'Введите корректные текстовые данные!!!'
-    err.style = 'color: white; background: green; width: 450px; padding: 50px; border-radius:10px;text-align: center;'
+    err.innerHTML = 'Введите корректные текстовые данные!!!';
+    err.style = 'color: white; background: green; width: 450px; padding: 50px; border-radius:10px;text-align: center;';
     div.append(err);
     setTimeout(() => err.remove(), 5000);
 }
@@ -125,7 +125,7 @@ function checkFindName() {
 function checkMatch () {
     let div = document.querySelector('.list');
     let err = document.createElement('div');
-    err.innerHTML = 'Совпадений не обнаружено!'
-    err.style = 'color: white; background: green; width: 450px; padding: 50px; border-radius:10px;text-align: center;'
+    err.innerHTML = 'Совпадений не обнаружено!';
+    err.style = 'color: white; background: green; width: 450px; padding: 50px; border-radius:10px;text-align: center;';
     div.append(err);
 }
