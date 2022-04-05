@@ -2,6 +2,7 @@ let url = "https://raw.githubusercontent.com/altkraft/for-applicants/master/fron
 let btnLind = document.getElementById("btnLind");
 let btnClear = document.getElementById("btnClear");
 let textInput = document.getElementById('textInput');
+let promise = fetch(url).then(response => response.json());
 
 checkScroll();
 
@@ -9,9 +10,7 @@ function checkScroll() {
     let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
     let clientHeight = document.documentElement.clientHeight + 100;
     if (windowRelativeBottom < clientHeight) {
-        fetch(url).then(function(response) {
-            return response.json();
-        }).then(function(response) {
+        f.then(function(response) {
             addTable(response, 25);
         });
     } else{
@@ -92,11 +91,7 @@ function query () {
     window.removeEventListener('scroll', checkScroll);
     if(findName == false) {checkFindName(); return;}
 
-    fetch(url).then(function(response) {
-        return response.json();
-    }).then(function(response) {
-       find(response, findName);
-    })
+    promise.then(response => find(response, findName));
 }
 
 function find (response, findName){
