@@ -1,19 +1,19 @@
 .name {
 	height: 50px;
-	margin-left: 38%;
+	margin: 0 auto;
+	width: 552px
 }
 
 .list {
-    margin-top: 50px;
-	margin-left: 38%;
-	width: 100%;
-
+    margin: 50px auto;
+	width: 510px;
 }
 
 .table {
 	width: 510px;
 	margin-bottom: 50px;
 }
+
 
 .table tr td:first-child {
 	border-left: 1px solid #ddd;
