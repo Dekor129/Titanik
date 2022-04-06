@@ -14,7 +14,6 @@
 	margin-bottom: 50px;
 }
 
-
 .table tr td:first-child {
 	border-left: 1px solid #ddd;
 	width: 340px;
@@ -68,4 +67,10 @@
 	padding:10px;
 	border-radius:10px;
 	width: 370px;
-  }
+}
+
+#arrowTop {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+}
