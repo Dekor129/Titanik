@@ -3,6 +3,7 @@ let btnLind = document.getElementById("btnLind");
 let btnClear = document.getElementById("btnClear");
 let textInput = document.getElementById('textInput');
 let promise = fetch(url).then(response => response.json());
+let arrowTop = document.getElementById('arrowTop');
 
 checkScroll();
 
@@ -10,7 +11,7 @@ function checkScroll() {
     let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
     let clientHeight = document.documentElement.clientHeight + 100;
     if (windowRelativeBottom < clientHeight) {
-        f.then(function(response) {
+        promise.then(function(response) {
             addTable(response, 25);
         });
     } else{
@@ -82,6 +83,14 @@ textInput.addEventListener('keydown', function(event) {
     }
 });
 
+arrowTop.onclick = function() {
+    window.scrollTo(pageXOffset, 0);
+};
+
+window.addEventListener('scroll', function() {
+    arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
+});
+
 function query () {
     let findName = textInput.value;
     document.querySelector('.list').remove();
@@ -98,7 +107,7 @@ function find (response, findName){
     for (let i = 0; i < response.length; i++){
         let name = response[i].name;
         name = name.toUpperCase();
-        findName =findName.toUpperCase();
+        findName = findName.toUpperCase();
         if(name.indexOf(findName, 0) != -1) {
             createTable (1);
             let table =  document.querySelector('.list').lastChild;
