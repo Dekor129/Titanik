@@ -84,11 +84,11 @@ textInput.addEventListener('keydown', function(event) {
 });
 
 arrowTop.onclick = function() {
-    window.scrollTo(pageXOffset, 0);
+    window.scrollTo(scrollX, 0);
 };
 
 window.addEventListener('scroll', function() {
-    arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
+    arrowTop.hidden = (scrollY < document.documentElement.clientHeight);
 });
 
 function query () {
